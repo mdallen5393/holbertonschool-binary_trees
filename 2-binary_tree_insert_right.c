@@ -10,6 +10,21 @@
  * @value: value to store in the new node
  * Return: pointer to the create node, or NULL on failure or if parent is NULL
  */
-binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value) {
+binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
+{
+	binary_tree_t *temp;
 
+	if (!parent)
+		return (NULL);
+
+	temp = parent->right;
+
+	parent->right = binary_tree_node(parent, value);
+	if (!parent->right) /* malloc failed */
+		return (NULL);
+
+	parent->right->right = temp;
+	if (temp)
+		temp->parent = parent->right;
+	return (parent->right);
 }
