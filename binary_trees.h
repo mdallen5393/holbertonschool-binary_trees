@@ -51,7 +51,7 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
 
 /* -- Function Prototypes: 0x08. Binary Trees 1 -- */
-
+int binary_tree_is_bst(const binary_tree_t *tree);
 
 
 /* -- Function Prototypes: Helper functions */
